@@ -16,7 +16,7 @@ docker rm $(docker ps -a -q --f
 ilter ancestor=repocket/repocket) 2>/dev/null || true
 
 # Pull and run new Repocket container
-if docker pull repocket/repocket; then
+if docker pull repocket/repocket:latest; then
     docker run --name repocket -e RP_EMAIL=duyhuynh31121991@gmail.com -e RP_API_KEY=601694d2-c47f-4369-9a06-8f1b0f2618e9 -d --restart=always repocket/repocket
     if [ $? -eq 0 ]; then
         echo "Repocket container started successfully. Check status with 'docker ps' or logs with 'docker logs repocket-$(hostname)'."
